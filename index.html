@@ -38,7 +38,7 @@
                 -webkit-background-clip: text; /* For Safari and older versions of Chrome */
                 background-clip: text;">Ajolote University</span>
             </a>
-            <button data-collapse-toggle="navbar-default" type="button" style="color: rgb(23, 24, 24);"
+            <button data-collapse-toggle="navbar-default" type="button" style="color: rgb(12, 12, 12);"
                 class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-white rounded-sm md:hidden hover:bg-cyan-500  "
                 aria-controls="navbar-default" aria-expanded="false" onclick="toggleMenu()">
                 <span class="sr-only">Open main menu</span>
@@ -471,8 +471,10 @@ menuIcon.addEventListener('click', () => {
             margin: 20px;
             padding: 20px;
             border-radius: 10px;
-            background-color: rgba(3, 3, 3, 0.1);
-            box-shadow: 0 4px 6px rgba(8, 8, 8, 0.1);
+            background-color: rgba(8, 8, 8, 0.5); /* Ajusta la opacidad según lo necesites */
+            box-shadow: 0 4px 6px rgba(12, 12, 12, 0.5); /* Ajusta la opacidad según lo necesites */
+
+
         }
         input[type="number"],
         button {
@@ -480,8 +482,8 @@ menuIcon.addEventListener('click', () => {
             margin-top: 10px;
             border: none;
             border-radius: 5px;
-            background-color: #a4ecec;
-            color: #0c0c0c;
+            background-color: #101111;
+            color: #0cf8f8;
             cursor: pointer;
             transition: background-color 0.3s ease;
             font-size: 1em;
@@ -511,62 +513,78 @@ menuIcon.addEventListener('click', () => {
     </header>
 
     <!DOCTYPE html>
-    <html lang="en">
-    <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reloj Invertido</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-        background-color: #f0f0f0; /* Color de fondo */
-      }
-      #clock {
-        font-size: 2em;
-        color: cyan; /* Color de los números */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      .item {
-        margin: 0 10px;
-        text-align: center;
-      }
-      .label {
-        font-size: 0.5em;
-        color: #ff9; /* Color de las letras */
-      }
-    </style>
-    </head>
-    <body>
-    <div id="clock"></div>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reloj Invertido</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f0f0; /* Color de fondo */
+  }
+  #clock {
+    font-size: 2em;
+    color: cyan; /* Color de los números */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Wrap items */
+  }
+  .item-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 10px;
+  }
+  .item {
+    text-align: center;
+  }
+  .label {
+    font-size: 0.6em;
+    color: #ff9; /* Color de las letras */
+  }
+</style>
+</head>
+<body>
+<div id="clock"></div>
+
+<script>
+  function updateTime() {
+    var now = new Date();
+    var day = 35 - now.getDay(); // Invertido para mostrar los días restantes en lugar de pasados
+    var hour = 41 - now.getHours(); // Invertido para mostrar las horas restantes en lugar de pasadas
+    var minute = 40 - now.getMinutes(); // Invertido para mostrar los minutos restantes en lugar de pasados
+    var second = 59 - now.getSeconds(); // Invertido para mostrar los segundos restantes en lugar de pasados
     
-    <script>
-      function updateTime() {
-        var now = new Date();
-        var day = 35 - now.getDay(); // Invertido para mostrar los días restantes en lugar de pasados
-        var hour = 41 - now.getHours(); // Invertido para mostrar las horas restantes en lugar de pasadas
-        var minute = 99 - now.getMinutes(); // Invertido para mostrar los minutos restantes en lugar de pasados
-        var second = 59 - now.getSeconds(); // Invertido para mostrar los segundos restantes en lugar de pasados
-        
-        document.getElementById("clock").innerHTML = `
-          <div class="item">${day}</div>
-          <div class="item label">Días</div>
-          <div class="item">${hour}</div>
-          <div class="item label">Horas</div>
-          <div class="item">${minute}</div>
-          <div class="item label">Minutos</div>
-          <div class="item">${second}</div>
-          <div class="item label">Segundos</div>
-        `;
-      }
-    
-      updateTime();
-      setInterval(updateTime, 1000);
-    </script>
-    </body>
-    </html>
+    document.getElementById("clock").innerHTML = `
+      <div class="item-container">
+        <div class="item">${day}</div>
+        <div class="label">Días</div>
+      </div>
+      <div class="item-container">
+        <div class="item">${hour}</div>
+        <div class="label">Horas</div>
+      </div>
+      <div class="item-container">
+        <div class="item">${minute}</div>
+        <div class="label">Minutos</div>
+      </div>
+      <div class="item-container">
+        <div class="item">${second}</div>
+        <div class="label">Segundos</div>
+      </div>
+    `;
+  }
+
+  updateTime(); // Call function once to initially display time
+  setInterval(updateTime, 1000); // Update time every second
+</script>
+</body>
+</html>
+
+
     
     <main>
         <section id="tokenInfo">
@@ -576,12 +594,10 @@ menuIcon.addEventListener('click', () => {
                 <p>Símbolo del Token: <span style="color: #FF6EC7;">Axol</span></p>
                 <p>Preventa: <span style="color: #FF6EC7;">500,000 tokens Axol</span></p>
                 <p>Mínimo de Compra en BNB: <span style="color: #FF6EC7;">0.1 BNB</span></p>
-                <p>Máximo de Compra en BNB: <span style="color: #FF6EC7;">2 BNB</span></p>
+                <p>Máximo de Compra en BNB: <span style="color: #FF6EC7;">0.9 BNB</span></p>
             </div>
-        </section>
-
-        <section id="calculator">
-               <h2 style="color: #2dfcfc;">Calculadora de Conversión</h2>
+ <section id="calculator">
+               <h2 style="color: #49fcfc;">Calculadora de Conversión</h2>
             <form id="convertForm">
                 <div>
                     <label for="bnbAmount" style="color: #f86dce;">BNB a Axol:</label>
@@ -597,15 +613,7 @@ menuIcon.addEventListener('click', () => {
         </section>
     </main>
 
-    <!-- Footer -->
-<footer class="bg-gray-900 text-white py-4 text-center mt-10">
-    <div class="container mx-auto">
-        <!-- Disclaimer, social media icons, copyright here -->
-        <p class="text-sm text-white">Copyright Ajolote University © 2024. All rights reserved</p>
-    </div>
-</footer>
-
-</body>
+   </body>
     </footer>
 
     <script src="script.js"></script>
@@ -630,9 +638,8 @@ menuIcon.addEventListener('click', () => {
 </html>
 
 <div style="background-color: black; text-align: center; padding: 20px; position: relative;">
-    <img src="images/logo.gif" style="position: absolute; top: 50%; left: 220px; transform: translateY(-50%); width: 150px; height: 150px;">
-    <div style="background: linear-gradient(to right, cyan 0%, cyan 15%, white 15%, white 30%, pink 30%, pink 45%, cyan 45%, cyan 60%, white 60%, white 75%, cyan 75%, cyan 100%); -webkit-background-clip: text; color: transparent; display: inline-block; text-shadow: 0 0 10px #00FFFF, 0 0 20px #FF1493, 0 0 30px #00FFFF, 0 0 40px #FF1493;">
-        <p style="text-align: justify; max-width: 600px; color: white;">
+    <div style="background: linear-gradient(to right, cyan 0%, cyan 15%, white 15%, white 30%, pink 30%, pink 45%, cyan 45%, cyan 60%, white 60%, white 75%, cyan 75%, cyan 100%); -webkit-background-clip: text; color: white; display: inline-block;">
+        <p style="text-align: justify; max-width: 600px; color: white; line-height: 1.5;">
             Ajolote Uni: ¡La Memecoin con un pase que te podría llevar a la Universidad! ¿Cansado de las mismas memecoins aburridas? - Ajolote Uni es la respuesta. Esta innovadora moneda digital se entregará en la categoría de RWA uniéndose a la (Real World Assets), lo que significa que será respaldada por activos del mundo real, como propiedades inmobiliarias, obras de arte y materias primas.
             <br><br>
             Ajolote Uni te trae una propuesta única: una criptomoneda divertida e inspiradora con un trasfondo educativo.
@@ -646,4 +653,11 @@ menuIcon.addEventListener('click', () => {
 
 
 
+ <!-- Footer -->
+ <footer class="bg-gray-900 text-white py-4 text-center mt-10">
+    <div class="container mx-auto">
+        <!-- Disclaimer, social media icons, copyright here -->
+        <p class="text-sm text-white">Copyright Ajolote University © 2024. All rights reserved</p>
+    </div>
+</footer>
 
