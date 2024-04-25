@@ -506,158 +506,176 @@ menuIcon.addEventListener('click', () => {
 <body>
     <header>
 
-        <img src="images/logo.png" class="h-12 rounded-full md:h-14" alt="etf" />
-        <h1>Ajolote University</h1>
-       
-        <button id="connectWalletButton">Conectar Wallet</button>
-    </header>
+   
+        <!DOCTYPE html> 
+        <html> 
+        <head> 
+            <style> 
+                .center-text { 
+                    text-align: center; 
+                    margin-right: 30%; /* Ajusta este valor para cambiar la posición hacia la derecha */ 
+                } 
+            </style> 
+        </head> 
+        <body> 
+            <div class="center-text"> 
+                <h1>Ajolote University</h1> 
+            </div> 
+        </body> 
+        </html> 
+         
+        <button id="connectWalletButton">Conectar Wallet</button> 
+    </header> 
+         
+        
+ 
+    <!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>Reloj Invertido</title> 
+<style> 
+  body { 
+    font-family: Arial, sans-serif; 
+    text-align: center; 
+    background-color: #f0f0f0; /* Color de fondo */ 
+  } 
+  #clock { 
+    font-size: 2em; 
+    color: cyan; /* Color de los números */ 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    flex-wrap: wrap; /* Wrap items */ 
+  } 
+  .item-container { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    margin: 0 10px; 
+  } 
+  .item { 
+    text-align: center; 
+  } 
+  .label { 
+    font-size: 0.6em; 
+    color: #ff9; /* Color de las letras */ 
+  } 
+</style> 
+</head> 
+<body> 
+<div id="clock"></div> 
+ 
+<script> 
+  function updateTime() { 
+    var now = new Date(); 
+    var day = 35 - now.getDay(); // Invertido para mostrar los días restantes en lugar de pasados 
+    var hour = 24 - now.getHours(); // Invertido para mostrar las horas restantes en lugar de pasadas 
+    var minute = 60- now.getMinutes(); // Invertido para mostrar los minutos restantes en lugar de pasados 
+    var second = 59 - now.getSeconds(); // Invertido para mostrar los segundos restantes en lugar de pasados 
+     
+    document.getElementById("clock").innerHTML = ` 
+      <div class="item-container"> 
+        <div class="item">${day}</div> 
+        <div class="label">Días</div> 
+      </div> 
+      <div class="item-container"> 
+        <div class="item">${hour}</div> 
+        <div class="label">Horas</div> 
+      </div> 
+      <div class="item-container"> 
+        <div class="item">${minute}</div> 
+        <div class="label">Minutos</div> 
+      </div> 
+      <div class="item-container"> 
+        <div class="item">${second}</div> 
+        <div class="label">Segundos</div> 
+      </div> 
+    `; 
+  } 
+ 
+  updateTime(); // Call function once to initially display time 
+  setInterval(updateTime, 1000); // Update time every second 
+</script> 
+</body> 
+</html> 
+ 
+ 
+     
+    <main> 
+        <section id="tokenInfo"> 
+            <h2 style="color: #00FFFF;">Información del Token</h2> 
+            <div> 
+                <p>Nombre del Token: <span style="color: #FF6EC7;">Ajolote University</span></p> 
+                <p>Símbolo del Token: <span style="color: #FF6EC7;">Axol</span></p> 
+                <p>Preventa: <span style="color: #FF6EC7;">500,000 tokens Axol</span></p> 
+                <p>Mínimo de Compra en BNB: <span style="color: #FF6EC7;">0.1 BNB</span></p> 
+                <p>Máximo de Compra en BNB: <span style="color: #FF6EC7;">0.9 BNB</span></p> 
+            </div> 
+ <section id="calculator"> 
+               <h2 style="color: #49fcfc;">Calculadora de Conversión</h2> 
+            <form id="convertForm"> 
+                <div> 
+                    <label for="bnbAmount" style="color: #f86dce;">BNB a Axol:</label> 
+                    <input type="number" id="bnbAmount" name="bnbAmount" min="0" step="0.01" oninput="convertirAutomaticamente(this.value, 'bnbAmount', 'axolAmount')" required> 
+                </div> 
+                <div> 
+                    <label for="axolAmount" style="color: #FF6EC7;">Axol a BNB:</label> 
+                    <input type="number" id="axolAmount" name="axolAmount" min="0" step="1" oninput="convertirAutomaticamente(this.value, 'axolAmount', 'bnbAmount')" required> 
+                </div> 
+                <br> 
+                <button type="button"
 
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Reloj Invertido</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: #f0f0f0; /* Color de fondo */
-  }
-  #clock {
-    font-size: 2em;
-    color: cyan; /* Color de los números */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap; /* Wrap items */
-  }
-  .item-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 10px;
-  }
-  .item {
-    text-align: center;
-  }
-  .label {
-    font-size: 0.6em;
-    color: #ff9; /* Color de las letras */
-  }
-</style>
-</head>
-<body>
-<div id="clock"></div>
-
-<script>
-  function updateTime() {
-    var now = new Date();
-    var day = 35 - now.getDay(); // Invertido para mostrar los días restantes en lugar de pasados
-    var hour = 41 - now.getHours(); // Invertido para mostrar las horas restantes en lugar de pasadas
-    var minute = 40 - now.getMinutes(); // Invertido para mostrar los minutos restantes en lugar de pasados
-    var second = 59 - now.getSeconds(); // Invertido para mostrar los segundos restantes en lugar de pasados
-    
-    document.getElementById("clock").innerHTML = `
-      <div class="item-container">
-        <div class="item">${day}</div>
-        <div class="label">Días</div>
-      </div>
-      <div class="item-container">
-        <div class="item">${hour}</div>
-        <div class="label">Horas</div>
-      </div>
-      <div class="item-container">
-        <div class="item">${minute}</div>
-        <div class="label">Minutos</div>
-      </div>
-      <div class="item-container">
-        <div class="item">${second}</div>
-        <div class="label">Segundos</div>
-      </div>
-    `;
-  }
-
-  updateTime(); // Call function once to initially display time
-  setInterval(updateTime, 1000); // Update time every second
-</script>
-</body>
-</html>
-
-
-    
-    <main>
-        <section id="tokenInfo">
-            <h2 style="color: #00FFFF;">Información del Token</h2>
-            <div>
-                <p>Nombre del Token: <span style="color: #FF6EC7;">Ajolote University</span></p>
-                <p>Símbolo del Token: <span style="color: #FF6EC7;">Axol</span></p>
-                <p>Preventa: <span style="color: #FF6EC7;">500,000 tokens Axol</span></p>
-                <p>Mínimo de Compra en BNB: <span style="color: #FF6EC7;">0.1 BNB</span></p>
-                <p>Máximo de Compra en BNB: <span style="color: #FF6EC7;">0.9 BNB</span></p>
-            </div>
- <section id="calculator">
-               <h2 style="color: #49fcfc;">Calculadora de Conversión</h2>
-            <form id="convertForm">
-                <div>
-                    <label for="bnbAmount" style="color: #f86dce;">BNB a Axol:</label>
-                    <input type="number" id="bnbAmount" name="bnbAmount" min="0" step="0.01" oninput="convertirAutomaticamente(this.value, 'bnbAmount', 'axolAmount')" required>
-                </div>
-                <div>
-                    <label for="axolAmount" style="color: #FF6EC7;">Axol a BNB:</label>
-                    <input type="number" id="axolAmount" name="axolAmount" min="0" step="1" oninput="convertirAutomaticamente(this.value, 'axolAmount', 'bnbAmount')" required>
-                </div>
-                <br>
-                <button type="button" id="buyButton" onclick="comprar()">Comprar</button>
-            </form>
-        </section>
-    </main>
-
-   </body>
-    </footer>
-
-    <script src="script.js"></script>
-    <script>
-        // Función para realizar la conversión automáticamente
-        function convertirAutomaticamente(valor, desde, hacia) {
-            const input = parseFloat(valor);
-            if (!isNaN(input)) {
-                const conversion = desde === 'bnbAmount' ? input * 6000 : input / 6000;
-                document.getElementById(hacia).value = conversion.toFixed(2);
-            } else {
-                document.getElementById(hacia).value = "";
-            }
-        }
-
-        // Función para realizar la compra (agregar tu lógica aquí)
-        function comprar() {
-            alert('Función de compra aún no implementada');
-        }
-    </script>
-</body>
-</html>
-
-<div style="background-color: black; text-align: center; padding: 20px; position: relative;">
-    <div style="background: linear-gradient(to right, cyan 0%, cyan 15%, white 15%, white 30%, pink 30%, pink 45%, cyan 45%, cyan 60%, white 60%, white 75%, cyan 75%, cyan 100%); -webkit-background-clip: text; color: white; display: inline-block;">
-        <p style="text-align: justify; max-width: 600px; color: white; line-height: 1.5;">
-            Ajolote Uni: ¡La Memecoin con un pase que te podría llevar a la Universidad! ¿Cansado de las mismas memecoins aburridas? - Ajolote Uni es la respuesta. Esta innovadora moneda digital se entregará en la categoría de RWA uniéndose a la (Real World Assets), lo que significa que será respaldada por activos del mundo real, como propiedades inmobiliarias, obras de arte y materias primas.
-            <br><br>
-            Ajolote Uni te trae una propuesta única: una criptomoneda divertida e inspiradora con un trasfondo educativo.
-            <br><br>
-            La memecoin, token ICO estará basada en un Ajolote llamado Axol, que tiene un interesante proyecto de vida, e interés por adquirir conocimientos. En un mundo donde la vida del ajolote es a la vez misteriosa y emocionante, la leyenda del ajolote nace cuando un joven ajolote llamado axol sueña con asistir a la universidad más prestigiosa del reino del agua, la Universidad Salamander.
-            <br><br>
-            Conoce a Axol: un joven ajolote soñador que lucha por entrar en la prestigiosa Universidad Salamander. A pesar de sus dificultades, Axol nunca se rinde y se encuentra en Ajolote Uni, una idea inspirada en su historia, la oportunidad de cambiar su destino. A pesar de sus desventuras en la Universidad Salamander, Axol, "El Eterno Fracaso Axolotl", nunca ha dejado que las dificultades lo detengan en su búsqueda por la educación y el dinero, su perseverancia lo ha llevado a descubrir una criptomoneda: Ajolote Uni.
-        </p>
-    </div>
-</div>
-
-
-
- <!-- Footer -->
- <footer class="bg-gray-900 text-white py-4 text-center mt-10">
-    <div class="container mx-auto">
-        <!-- Disclaimer, social media icons, copyright here -->
-        <p class="text-sm text-white">Copyright Ajolote University © 2024. All rights reserved</p>
-    </div>
+                id="buyButton" onclick="comprar()">Comprar</button> 
+            </form> 
+        </section> 
+    </main> 
+ 
+   </body> 
+    </footer> 
+ 
+    <script src="script.js"></script> 
+    <script> 
+        // Función para realizar la conversión automáticamente 
+        function convertirAutomaticamente(valor, desde, hacia) { 
+            const input = parseFloat(valor); 
+            if (!isNaN(input)) { 
+                const conversion = desde === 'bnbAmount' ? input * 6000 : input / 6000; 
+                document.getElementById(hacia).value = conversion.toFixed(2); 
+            } else { 
+                document.getElementById(hacia).value = ""; 
+            } 
+        } 
+ 
+        // Función para realizar la compra (agregar tu lógica aquí) 
+        function comprar() { 
+            alert('Función de compra aún no implementada'); 
+        } 
+    </script> 
+</body> 
+</html> 
+ 
+<div style="background-color: black; text-align: center; padding: 20px; position: relative;"> 
+    <div style="background: linear-gradient(to right, cyan 0%, cyan 15%, white 15%, white 30%, pink 30%, pink 45%, cyan 45%, cyan 60%, white 60%, white 75%, cyan 75%, cyan 100%); -webkit-background-clip: text; color: white; display: inline-block;"> 
+        <p style="text-align: justify; max-width: 600px; color: white; line-height: 1.5;"> 
+            Ajolote Uni: ¡La Memecoin con un pase que te podría llevar a la Universidad! ¿Cansado de las mismas memecoins aburridas? - Ajolote Uni es la respuesta. Esta innovadora moneda digital se entregará en la categoría de RWA uniéndose a la (Real World Assets), lo que significa que será respaldada por activos del mundo real, como propiedades inmobiliarias, obras de arte y materias primas. 
+            <br><br> 
+            Ajolote Uni te trae una propuesta única: una criptomoneda divertida e inspiradora con un trasfondo educativo. 
+            <br><br> 
+            La memecoin, token ICO estará basada en un Ajolote llamado Axol, que tiene un interesante proyecto de vida, e interés por adquirir conocimientos. En un mundo donde la vida del ajolote es a la vez misteriosa y emocionante, la leyenda del ajolote nace cuando un joven ajolote llamado axol sueña con asistir a la universidad más prestigiosa del reino del agua, la Universidad Salamander. 
+            <br><br> 
+            Conoce a Axol: un joven ajolote soñador que lucha por entrar en la prestigiosa Universidad Salamander. A pesar de sus dificultades, Axol nunca se rinde y se encuentra en Ajolote Uni, una idea inspirada en su historia, la oportunidad de cambiar su destino. A pesar de sus desventuras en la Universidad Salamander, Axol, "El Eterno Fracaso Axolotl", nunca ha dejado que las dificultades lo detengan en su búsqueda por la educación y el dinero, su perseverancia lo ha llevado a descubrir una criptomoneda: Ajolote Uni. 
+        </p> 
+    </div> 
+</div> 
+ 
+ 
+ 
+ <!-- Footer --> 
+ <footer class="bg-gray-900 text-white py-4 text-center mt-10"> 
+    <div class="container mx-auto"> 
+        <!-- Disclaimer, social media icons, copyright here --> 
+        <p class="text-sm text-white">Copyright Ajolote University © 2024. All rights reserved</p> 
+    </div> 
 </footer>
-
