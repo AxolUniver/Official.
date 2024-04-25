@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presale de Tokens</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Si deseas agregar estilos -->
+</head>
+<body>
+    <header>
+        <h1>Presale de Tokens</h1>
+    </header>
+
+    <main>
+        <section id="tokenInfo">
+            <h2>Información del Token</h2>
+            <p>Nombre del Token: <span id="tokenName">Nombre del Token</span></p>
+            <p>Símbolo del Token: <span id="tokenSymbol">TOKEN</span></p>
+            <p>Balance Actual: <span id="tokenBalance">0</span> TOKEN</p>
+        </section>
+
+        <section id="purchaseForm">
+            <h2>Compra de Tokens</h2>
+            <form id="buyTokensForm">
+                <label for="amount">Cantidad:</label>
+                <input type="number" id="amount" name="amount" min="1" required>
+                <button type="submit">Comprar Tokens</button>
+            </form>
+            <p id="purchaseStatus"></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Presale de Tokens</p>
+    </footer>
+
+    <script src="script.js"></script> <!-- Si deseas agregar scripts JavaScript -->
+</body>
+</html>
